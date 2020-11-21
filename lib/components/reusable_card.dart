@@ -1,0 +1,32 @@
+import 'package:flutter/material.dart';
+
+enum Genders {
+  MALE,
+  FEMALE,
+}
+Genders gender;
+
+class ReusableCard extends StatelessWidget {
+  ReusableCard({@required this.cardColor, this.cardChild, this.onPress});
+
+  final Color cardColor;
+  final Widget cardChild;
+  final Function onPress;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onPress,
+      child: Container(
+        child: cardChild,
+        margin: EdgeInsets.all(15.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10.0),
+          color: cardColor,
+        ),
+        height: 200.0,
+        width: 170.0,
+      ),
+    );
+  }
+}
